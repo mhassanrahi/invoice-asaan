@@ -5,7 +5,12 @@ import { notFound } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import Invoice from "./Invoice";
 
-const InvoicePage = async ({ params }: { params: { invoiceId: string } }) => {
+type Props = {
+  params: { invoiceId: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+const InvoicePage = async ({ params }: Props) => {
   const { userId, orgId } = auth();
 
   if (!userId) {
