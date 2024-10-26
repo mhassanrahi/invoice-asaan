@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Container from "../../../components/Container";
 import { Badge } from "../../../components/ui/badge";
 import { cn } from "../../../lib/utils";
@@ -11,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../../../components/ui/dropdown-menu";
-import { ChevronDown, Ellipsis, Trash2 } from "lucide-react";
+import { ChevronDown, Ellipsis, Trash2, CreditCard } from "lucide-react";
 import { useOptimistic } from "react";
 import { AVAILABLE_STATUSES } from "../../../constants";
 import { updateInvoiceStatus, deleteInvoice } from "../../actions";
@@ -112,30 +113,6 @@ const Invoice = ({ invoice }: InvoiceProps) => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  className="flex items-center gap-2"
-                  variant="outline"
-                  type="button"
-                >
-                  <span className="sr-only">More Options</span>
-                  <Ellipsis className="w-4 h-auto" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <form action={deleteInvoice}>
-                    <input type="hidden" name="id" value={invoice.id} />
-                    <button className="flex items-center gap-2" type="submit">
-                      <Trash2 className="w-4 h-auto" />
-                      Delete Invoice
-                    </button>
-                  </form>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu> */}
-
             <Dialog>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -158,7 +135,7 @@ const Invoice = ({ invoice }: InvoiceProps) => {
                     </DialogTrigger>
                   </DropdownMenuItem>
 
-                  {/* <DropdownMenuItem>
+                  <DropdownMenuItem>
                     <Link
                       href={`/invoices/${invoice.id}/payment`}
                       className="flex items-center gap-2"
@@ -166,7 +143,7 @@ const Invoice = ({ invoice }: InvoiceProps) => {
                       <CreditCard className="w-4 h-auto" />
                       Payment
                     </Link>
-                  </DropdownMenuItem> */}
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
