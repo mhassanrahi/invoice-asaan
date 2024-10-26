@@ -12,7 +12,7 @@ const InvoicePage = async ({ params }: { params: { invoiceId: string } }) => {
     return { error: "Unauthorized" };
   }
 
-  const { invoiceId } = await params;
+  const { invoiceId } = params;
   const invoiceIdNumber = parseInt(invoiceId);
 
   if (isNaN(invoiceIdNumber)) {
